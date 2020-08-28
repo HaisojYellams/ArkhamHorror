@@ -2,6 +2,9 @@ import { IAreaState } from 'src/data/Areas/Area';
 import { ArkhamLocations } from 'src/data/Areas/ArkhamLocation';
 import { UnstableLocations } from 'src/data/enums/EArea';
 
+import { Dialog } from 'quasar';
+import PageIndex from 'pages/Index.vue';
+
 interface IGameState {
   areaStates: { [key: number]: IAreaState }
 }
@@ -47,6 +50,12 @@ class Game {
   }
 
   protected initializeGame(numInvestigators: number): void {
+    this.getNumHumans()
+      .then(numHumans => {
+        console.log('Num humans: ', numHumans);
+      }).catch((reason) => {
+      console.warn('Game initialization canceled. ', reason);
+    });
     if (numInvestigators < 1 || numInvestigators > 8 || numInvestigators % 1 !== 0) {
       throw Error(
         `The number of investigators must be a whole number in the inclusive
@@ -57,6 +66,40 @@ class Game {
     UnstableLocations.forEach(
       unstableLocation => {
         ArkhamLocations[unstableLocation].addClueToken();
+      }
+    );
+  }
+
+  public printTodos(pageIndex: PageIndex): void {
+    console.log('Todos:', pageIndex.todos);
+  }
+
+  protected getNumHumans() {
+    return new Promise(
+      (resolve, reject) => {
+        Dialog.create({
+          title: 'Prompt',
+          message: 'How many humans are playing this game?',
+          prompt: {
+            model: '',
+            type: 'number',
+            isValid: (val: number) => 0 < val && val < 9 && (val % 1 === 0)
+          },
+          cancel: true,
+          persistent: true
+        }).onOk(
+          (data: string) => {
+            resolve(data);
+          }
+        ).onCancel(
+          () => {
+            reject('Number of humans not set.');
+          }
+        ).onDismiss(
+          () => {
+            reject('Number of humans not set.');
+          }
+        );
       }
     );
   }
