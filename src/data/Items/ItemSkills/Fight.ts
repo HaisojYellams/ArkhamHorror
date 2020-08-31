@@ -1,4 +1,4 @@
-import ItemSkillClue from 'src/data/Items/ItemSkillClue';
+import ItemSkillClue from 'src/data/Items/ItemSkills/ItemSkillClue';
 
 class Fight extends ItemSkillClue {
   constructor() {

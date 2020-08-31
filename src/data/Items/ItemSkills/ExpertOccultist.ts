@@ -1,4 +1,4 @@
-import ItemSkillReroll from 'src/data/Items/ItemSkillReroll';
+import ItemSkillReroll from 'src/data/Items/ItemSkills/ItemSkillReroll';
 
 class ExpertOccultist extends ItemSkillReroll {
   constructor() {

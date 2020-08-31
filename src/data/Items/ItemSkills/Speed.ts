@@ -1,7 +1,7 @@
 import ItemSkillClue from 'src/data/Items/ItemSkills/ItemSkillClue';
 
-export default class Luck extends ItemSkillClue {
+export default class Speed extends ItemSkillClue {
   constructor() {
-    super('Luck', 'Luck');
+    super('Speed', 'Speed');
   }
 }
