@@ -43,6 +43,32 @@ import MapOfArkham from 'src/data/Items/ItemCommons/MapOfArkham';
 import Food from 'src/data/Items/ItemCommons/Food';
 import Whiskey from 'src/data/Items/ItemCommons/Whiskey';
 import ResearchMaterials from 'src/data/Items/ItemCommons/ResearchMaterials';
+import EnchantedBlade from 'src/data/Items/ItemUniques/EnchantedBlade';
+import LampOfAlhazred from 'src/data/Items/ItemUniques/LampOfAlhazred';
+import SwordOfGlory from 'src/data/Items/ItemUniques/SwordOfGlory';
+import EnchantedKnife from 'src/data/Items/ItemUniques/EnchantedKnife';
+import PowderOfIbnGhazi from 'src/data/Items/ItemUniques/PowderOfIbnGhazi';
+import HolyWater from 'src/data/Items/ItemUniques/HolyWater';
+import AncientTablet from 'src/data/Items/ItemUniques/AncientTablet';
+import RubyOfRlyeh from 'src/data/Items/ItemUniques/RubyOfRlyeh';
+import AlienStatue from 'src/data/Items/ItemUniques/AlienStatue';
+import Necronomicon from 'src/data/Items/ItemUniques/Necronomicon';
+import BookOfDzyan from 'src/data/Items/ItemUniques/BookOfDzyan';
+import CultesDesGoules from 'src/data/Items/ItemUniques/CultesDesGoules';
+import NamelessCults from 'src/data/Items/ItemUniques/NamelessCults';
+import TheKingInYellow from 'src/data/Items/ItemUniques/TheKingInYellow';
+import CabalaOfSaboth from 'src/data/Items/ItemUniques/CabalaOfSaboth';
+import HealingStone from 'src/data/Items/ItemUniques/HealingStone';
+import PallidMask from 'src/data/Items/ItemUniques/PallidMask';
+import ElderSign from 'src/data/Items/ItemUniques/ElderSign';
+import ObsidianStatue from 'src/data/Items/ItemUniques/ObsidianStatue';
+import WardingStatue from 'src/data/Items/ItemUniques/WardingStatue';
+import DragonsEye from 'src/data/Items/ItemUniques/DragonsEye';
+import EnchantedJewelry from 'src/data/Items/ItemUniques/EnchantedJewelry';
+import SilverKey from 'src/data/Items/ItemUniques/SilverKey';
+import GateBox from 'src/data/Items/ItemUniques/GateBox';
+import FluteOfTheOuterGods from 'src/data/Items/ItemUniques/FluteOfTheOuterGods';
+import BlueWatcherOfThePyramid from 'src/data/Items/ItemUniques/BlueWatcherOfThePyramid';
 
 class ItemRegistryFactory {
 
@@ -50,6 +76,7 @@ class ItemRegistryFactory {
     const registry = new GenericRegistry<Item>();
 
     ItemRegistryFactory.registerCommonItems(registry);
+    ItemRegistryFactory.registerUniqueItems(registry);
     ItemRegistryFactory.registerSkills(registry);
     ItemRegistryFactory.registerSpells(registry);
 
@@ -111,6 +138,39 @@ class ItemRegistryFactory {
     registry.register(new Food());
     registry.register(new Whiskey());
     registry.register(new ResearchMaterials());
+  }
+
+  private static registerUniqueItems(registry: GenericRegistry<Item>): void {
+    registry.register(new EnchantedBlade());
+    registry.register(new LampOfAlhazred());
+    registry.register(new SwordOfGlory());
+    registry.register(new EnchantedKnife());
+    registry.register(new PowderOfIbnGhazi());
+    registry.register(new HolyWater());
+
+    registry.register(new AncientTablet());
+    registry.register(new RubyOfRlyeh());
+    registry.register(new AlienStatue());
+    registry.register(new Necronomicon());
+    registry.register(new BookOfDzyan());
+    registry.register(new CultesDesGoules());
+    registry.register(new NamelessCults());
+    registry.register(new TheKingInYellow());
+    registry.register(new CabalaOfSaboth());
+
+    registry.register(new HealingStone());
+
+    registry.register(new PallidMask());
+
+    registry.register(new ElderSign());
+    registry.register(new ObsidianStatue());
+    registry.register(new GateBox());
+    registry.register(new SilverKey());
+    registry.register(new EnchantedJewelry());
+    registry.register(new WardingStatue());
+    registry.register(new DragonsEye());
+    registry.register(new FluteOfTheOuterGods());
+    registry.register(new BlueWatcherOfThePyramid());
   }
 
 }
